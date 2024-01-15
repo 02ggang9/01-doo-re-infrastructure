@@ -9,7 +9,7 @@ spring:
       mail.smtp.auth: true
     protocol: smtp
   datasource:
-    url: jdbc:mysql://localhost:3306/springBatch?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    url: jdbc:mysql://doo-re-db:3306/springBatch?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: ${MYSQL_USER}
     password: ${MYSQL_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
