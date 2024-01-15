@@ -2,10 +2,13 @@ version: '3.5'
 
 services:
   app:
-    container_name: app
+    container_name: doo-re-app
     image: doo-re-app:build
     ports:
       - 8080:8080
+    entrypoint: |
+      bash -c "chmod +x /entrypoint.sh && /entrypoint.sh"
+      "/entrypoint.sh"
     environment:
       - SECRET=${SECRET}
       - MAIL_HOST=${MAIL_HOST}
@@ -19,7 +22,7 @@ services:
       - db
 
   db:
-    container_name: db
+    container_name: doo-re-db
     image: doo-re-db:build
     environment:
       - MYSQL_DATABASE=${MYSQL_DATABASE}

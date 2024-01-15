@@ -8,3 +8,5 @@ ENV LANG=ko_KR.UTF-8 \
     LANGUAGE=ko_KR.UTF-8 \
     LC_ALL=ko_KR.UTF-8
 
+COPY docker/data/entrypoint.sh /entrypoint.sh
+COPY docker/data/application.yml /application.yml
