@@ -24,10 +24,10 @@ tar -zxf $BUILD_PATH/$1.tar.gz -C $BUILD_PATH
 rm $BUILD_PATH/$1.tar.gz
 
 ### Make Docker Image
-docker build -t keeper-homepage-app:$2 -f docker/app.layer.dockerfile .
+docker build -t doo-re-app:$2 -f docker/app.layer.dockerfile .
 
 ### Deploy
-docker-compose -p keeper-r2 up -d
+docker-compose -p doo-re up -d
 
 ### Cleanup
 docker rmi $(docker images -f "dangling=true" -q)
