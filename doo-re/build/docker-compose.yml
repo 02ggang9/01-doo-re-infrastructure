@@ -5,7 +5,7 @@ services:
     container_name: doo-re-app
     image: doo-re-app:build
     ports:
-      - 80:8080 # 수정 필요
+      - 8080:8080 # 수정 필요
     entrypoint: |
       bash -c "chmod +x /entrypoint.sh && /entrypoint.sh"
       "/entrypoint.sh"
