@@ -26,8 +26,10 @@ rm $BUILD_PATH/$1.tar.gz
 ### Make Docker Image
 docker build -t doo-re-app:$2 -f docker/app.layer.dockerfile .
 
+docker-compose down --rmi all
+
 ### Deploy
 docker-compose -p doo-re up -d
 
 ### Cleanup
-docker rmi $(docker images -f "dangling=true" -q)
+# docker rmi $(sudo docker images -f "dangling=true" -q)
