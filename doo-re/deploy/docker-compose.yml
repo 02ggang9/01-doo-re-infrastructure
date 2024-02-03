@@ -1,6 +1,16 @@
 version: '3.5'
 
 services:
+  front:
+    container_name: doo-re-front
+    build:
+      context: ./docker
+      dockerfile: front.dockerfile
+    ports:
+      - 3001:3001
+    environment:
+      - PORT=3001
+
   app:
     container_name: doo-re-app
     image: doo-re-app:${ENV}
@@ -26,3 +36,13 @@ services:
       - --collation-server=utf8mb4_unicode_ci
     ports:
       - 3306:3306
+  
+  nginx:
+    container_name: nginx
+    image: doo-re-nginx:${ENV}
+    volumes:
+      - ./docker/data/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./docker/data/nginx/conf.d:/etc/nginx/conf.d
+    prots:
+      - 80:80
+      - 443:443

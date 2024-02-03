@@ -11,8 +11,7 @@ COPY docker/data/server/application .
 
 ENTRYPOINT [ \
     "java", \
-    # "-jar", \
-    "-Dspring.profiles.active=deploy", \
+    "-Dspring.profiles.active=dev", \
     "-Duser.timezone=Asia/Seoul", \
     "org.springframework.boot.loader.launch.JarLauncher" \
 ]

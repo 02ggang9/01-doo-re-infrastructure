@@ -23,13 +23,16 @@ fi
 tar -zxf $BUILD_PATH/$1.tar.gz -C $BUILD_PATH
 rm $BUILD_PATH/$1.tar.gz
 
-### Make Docker Image
-docker build -t doo-re-app:$2 -f docker/app.layer.dockerfile .
+docker rm -f app
 
-docker-compose down --rmi all
+### Remove Docker Image of 'app'
+#docker rmi -f doo-re-app:$2
+
+### Make Docker Image
+docker build --no-cache -t doo-re-app:$2 -f docker/app.layer.dockerfile .
 
 ### Deploy
-docker-compose -p doo-re up -d
+docker-compose up -d
 
 ### Cleanup
-# docker rmi $(sudo docker images -f "dangling=true" -q)
+docker rmi $(docker images --filter "dangling=true" -q)
