@@ -32,10 +32,11 @@ docker rm -f front
 
 ### Docker Build
 echo "Docker Build"
-docker build -t doo-re-front:$2 -f $BUILD_PATH/Dockerfile .
+docker build --no-cache -t doo-re-front:$2 -f docker/front.dockerfile .
 
 ### Docker Compose Up
 echo "Docker Compose Up"
-docker-compose -p doo-re-front up -d
+docker-compose up -d front
+
 
 docker rmi $(docker images --filter "dangling=true" -q)

@@ -32,7 +32,7 @@ docker rm -f app
 docker build --no-cache -t doo-re-app:$2 -f docker/app.layer.dockerfile .
 
 ### Deploy
-docker-compose up -d
+docker-compose up -d app
 
 ### Cleanup
 docker rmi $(docker images --filter "dangling=true" -q)
