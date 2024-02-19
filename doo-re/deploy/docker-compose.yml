@@ -56,9 +56,3 @@ services:
     depends_on:
       - app
       - front
-  certbot:
-    image: certbot/certbot
-    restart: unless-stopped
-    volumes:
-      - ./docker/data/nginx/ssl:/etc/letsencrypt
-      - ./docker/data/nginx/www:/var/www/certbot
